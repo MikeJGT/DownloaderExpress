@@ -1,0 +1,19 @@
+@host=http://localhost:3000 
+
+@download=/api/download/
+
+@id=LXb3EKWsInQ
+@info=/api/info
+
+@id2=zoakilGMF0E
+@itag=22
+###
+GET {{host}}{{download}}{{id2}}/{{itag}}
+
+###
+GET {{host}}{{info}}/itag/{{id}}
+
+
+###
+GET {{host}}{{info}}/{{id}}
+https://www.youtube.com/watch?v=LXb3EKWsInQ
