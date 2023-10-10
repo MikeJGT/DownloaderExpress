@@ -14,9 +14,7 @@ router.get('/:id/:itag', async (req, res) => {
         // })
         ytdl(url, {
             requestOptions: {
-                'Content-Type': 'text/plain; charset=utf-8',
                 'Transfer-Encoding': 'chunked',
-                'X-Content-Type-Options': 'nosniff',
                 'Access-Control-Allow-Origin': '*'
             }
         }, { quality: `${req.params.itag}`, filter: format => format.container === 'mp4' }).on('data', (chunk) => {
