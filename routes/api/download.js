@@ -12,7 +12,6 @@ router.get('/:id/:itag', async (req, res) => {
             'X-Content-Type-Options': 'nosniff',
             'Access-Control-Allow-Origin': '*'
         })
-        res.set('Access-Control-Allow-Origin', '*');
         ytdl(url, { quality: `${req.params.itag}`, filter: format => format.container === 'mp4' }).on('data', (chunk) => {
             res.write(chunk);
 
