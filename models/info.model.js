@@ -1,5 +1,4 @@
 const ytdl = require('ytdl-core');
-const router = require('express').Router();
 
 const audioOrVideo = async (id) => {
     const url = `https://www.youtube.com/watch?v=${id}`;
@@ -16,7 +15,6 @@ const audioOrVideo = async (id) => {
         return formato.codecs.split(',').length >= 2;
     })
     return [audio, video];
-    return 'AudioVideo2'
 }
 
 

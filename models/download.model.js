@@ -12,3 +12,4 @@ const getVideo = (id, res) => {
 module.exports = {
     getVideo
 }
+

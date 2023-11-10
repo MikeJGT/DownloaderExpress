@@ -8,8 +8,9 @@
 @id2=zoakilGMF0E
 @itag=22
 
+
 ###
-GET {{host}}{{download}}{{id2}}/{{itag}}
+GET {{host}}{{download}}{{id}}/{{itag}}
 
 ###
 GET {{host}}{{info}}/itag/{{id}}

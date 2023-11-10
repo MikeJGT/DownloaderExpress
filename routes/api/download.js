@@ -1,21 +1,20 @@
-const { getVideo } = require('../../models/download.model');
-const fs = require('fs');
 const router = require('express').Router();
+const cors = require('cors');
 const ytdl = require('ytdl-core');
 
-router.get('/:id/:itag', async (req, res) => {
+router.get('/:id/:itag', cors(), async (req, res) => {
     try {
         const url = `https://www.youtube.com/watch?v=${req.params.id}`;
-
-        ytdl(url, {
+        let chunkSize = 0;
+        const yt = ytdl(url, {
             requestOptions: {
-                'Content-Type': 'text/plain; charset=utf-8',
+                'Content-Type': 'video/mp4',
                 'Transfer-Encoding': 'chunked',
-                'X-Content-Type-Options': 'nosniff',
-                'Access-Control-Allow-Origin': '*'
+                'X-Content-Type-Options': 'nosniff'
             }
             , quality: `${req.params.itag}`, filter: format => format.container === 'mp4'
         }).on('data', (chunk) => {
+            chunkSize += chunk.length;
             res.write(chunk);
         }).on('end', () => {
             res.end();
