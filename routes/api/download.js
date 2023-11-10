@@ -10,7 +10,7 @@ router.get('/:id/:itag', cors(), async (req, res) => {
             requestOptions: {
                 'Content-Type': 'video/mp4',
                 'Transfer-Encoding': 'chunked',
-                'X-Content-Type-Options': 'nosniff'
+                // 'X-Content-Type-Options': 'nosniff'
             }
             , quality: `${req.params.itag}`, filter: format => format.container === 'mp4'
         }).on('data', (chunk) => {
